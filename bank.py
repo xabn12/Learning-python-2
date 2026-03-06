@@ -13,23 +13,39 @@ def smooth(texto, velocidad=0.05):
     
 name="Fabricio"
 
-smooth("Hola " + name + " que operacion deseas realizar")
+smooth(f"Hola {name} que operacion deseas realizar")
 
 while True:
+    print("----Menu de opciones----")
     operacion= int(input("1.- Retiro  2.- Deposito :    "))
     
     match operacion:
         case 1: 
              print("Seleccionaste: Retiro")
-             retiro=input("Cuanto desea retirar:   ")
+             retiro=int(input("Cuanto desea retirar:    "))
              if retiro < 10:
                  print("El monto no puede ser menor de 10")
+                 smooth("Desea salir? 1.-Si  2.-No:    ")
+                 salir=int(input())
+                 if salir == 1:
+                     print ("VUELVA PRONTO!")
+                     break
              else:
-                 print("Retiro exitoso")
-             break
+                 print(f"Retiro de {retiro} exitoso")
+                 break
         case 2:
              print("Seleccionaste: Depósito")
-             break
+             deposito=int(input("Cuanto desea depsoitar:    "))
+             if deposito < 20:
+                 print("el monto no puede ser menor de 20")
+                 smooth("Desea salir? 1.-Si  2.-No:    ")
+                 salir=int(input())
+                 if salir == 1:
+                     print ("VUELVA PRONTO!")
+                     break
+             else:
+                 print(f"Deposito de {deposito} exitoso")
+                 break
         case _:
              print("Esa operación no existe")
              break
